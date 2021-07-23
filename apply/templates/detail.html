@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body{background-color: black; color: white;}
+</style>
+    <div style="text-align: center;">
+        <h3> <span style="background-color: #ffc107; color: black;">{{views_apply.name}}</span>님의 지원서 입니다.</h3>
+        {% if messages %}
+            {% for m in messages %}
+                <div style="text-align: center; color: red;">
+                    <strong>{{m.message}}</strong><br>
+                    수정 버튼을 통해 본인의 지원서를 수정할 수 있습니다.
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+        학번 : {{views_apply.student_id}} <br>
+        학과 : {{views_apply.major}}<br>
+        q1 : {{views_apply.q1}} <br>
+        q2 : {{views_apply.q2}} <br>
+        q3 : {{views_apply.q3}} <br>
+        q4 : {{views_apply.q4}} <br>
+        작성날짜 : {{views_apply.date}} <br><br>
+        <a href="{%url 'urlnamehome' %}"><button class="btn btn-outline-warning" >홈</button></a>
+        <a href="{%url 'urlnameupdate' views_apply.id %}"><button class="btn btn-outline-warning" >수정하기</button></a>
+        <a href="{%url 'urlnamedelete' views_apply.id %}"><button class="btn btn-outline-warning">삭제하기</button></a>
+        </div>
+{% endblock %}

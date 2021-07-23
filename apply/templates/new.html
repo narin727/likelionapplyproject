@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body{background-color: black; color: white;}
+</style>
+    {% if user.is_authenticated %}
+    <div style="text-align: center">
+        <form action="{%url 'urlnamenew' %}" method="POST">
+        {% csrf_token %}
+        <h2>새글작성페이지입니다.</h2> <br>
+            이름 : <input type="text" name="htmlname" value="{{user.name}}" readonly><br>
+            학번 : <input type="text" name="htmlstudent_id" value="{{user.student_id}}" readonly ><br>
+            학과 : <input type="text" name="htmlmajor" value="{{user.major}}" readonly><br><br>
+            q1 : <textarea name="htmlq1" cols="100" rows="10"></textarea><br><br>
+            q2 : <textarea name="htmlq2" cols="100" rows="10"></textarea><br><br>
+            q3 : <textarea name="htmlq3" cols="100" rows="10"></textarea><br><br>
+            q4 : <textarea name="htmlq4" cols="100" rows="10"></textarea><br><br>
+            <button type="submit" class="btn btn-outline-warning">제출</button>
+        
+        </form>
+    </div>
+    {% endif %}
+{% endblock %}

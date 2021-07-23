@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body{background-color: black; color: white;}
+</style>
+    <div style="text-align: center">
+        <form action="{%url 'urlnameupdate' update_apply.id %}" method="POST">
+        {% csrf_token %}
+        <h2>수정페이지입니다.</h2> <br>
+            이름 : <input type="text" name="htmlname" value="{{update_apply.name}}"><br>
+            학번 : <input type="text" name="htmlstudent_id" value="{{update_apply.student_id}}"><br>
+            학과 : <input type="text" name="htmlmajor" value="{{update_apply.major}}"><br><br>
+            q1 : <textarea name="htmlq1" cols="100" rows="10">{{update_apply.q1}}</textarea><br><br>
+            q2 : <textarea name="htmlq2" cols="100" rows="10">{{update_apply.q2}}</textarea><br><br>
+            q3 : <textarea name="htmlq3" cols="100" rows="10">{{update_apply.q3}}</textarea><br><br>
+            q4 : <textarea name="htmlq4" cols="100" rows="10">{{update_apply.q4}}</textarea><br>
+            <button type="submit" class="btn btn-outline-warning">수정완료</button>
+        </form>
+    </div>
+{% endblock %}
